@@ -6,4 +6,4 @@ Build by Vue.js, Vue-Router, Axios & Bulma. API support from [jsonplaceholder](h
 
 ## Use
 
-Download this project folder `simple-blog`, click `indx.html` and enjoy yourself.
+Download this project folder `simple-blog`, click `index.html` and enjoy yourself.
