@@ -2,7 +2,7 @@
 
 Build by Vue.js, Vue-Router, Axios & Bulma. API support from [jsonplaceholder](https://jsonplaceholder.typicode.com/).
 
-![App Cover Image](./images/app-cover.png)。
+![App Cover Image](./images/app-cover.png)
 
 ## Use
 
