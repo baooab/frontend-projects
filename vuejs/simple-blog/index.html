@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Vue.js Simple Blog System</title>
+    <script src="js/vue-2.5.13.js"></script>
+    <script src="js/vue-router-3.0.1.js"></script>
+    <script src="js/axios-0.17.1.js"></script>
+    <link rel="stylesheet" href="css/bulma-0.6.2.css">
+    <style>
+    .preview-blog__content {
+        white-space: pre;
+        overflow: hidden;
+    }
+
+    .hero-text--underlined {
+        box-shadow: inset 0 -.4rem 0 #9691E4;
+    }
+
+    .footer__love {
+        color: red;
+    }
+
+    [v-cloak] {
+      display: none;
+    }
+    </style>
+</head>
+<body>
+
+    <div id="app" v-cloak>
+
+    	<section class="hero is-light is-bold">
+    		<div class="hero-body">
+    			<div class="container">
+    				<h1 class="title">
+    					{{ site.name }}
+    				</h1>
+    				<p class="subtitle" v-html="site.description"></p>
+    			</div>
+    		</div>
+    		<div class="hero-foot">
+    			<nav class="tabs is-boxed">
+    				<div class="container">
+    					<ul>
+    						<router-link to="/blogs" tag="li" active-class="is-active" exact>
+    							<a href="javascript:;">List</a>
+    						</router-link>
+    						<router-link to="/blogs/new" tag="li" active-class="is-active" exact>
+    							<a href="javascript:;">Add</a>
+    						</router-link>
+    					</ul>
+    				</div>
+    			</nav>
+    		</div>
+    	</section>
+
+    	<section class="section">
+    		<router-view v-bind:request-root-url="requestRootUrl"></router-view>
+    	</section>
+
+    	<footer class="footer">
+        <div class="container">
+          <div class="content">
+            <p>
+             <a href="https://bulma.io/made-with-bulma/" target="_blank">
+               <img src="https://bulma.io/images/made-with-bulma.png" alt="Made with Bulma" width="128" height="24">
+             </a>
+            </p>
+            <p>
+              Designed by <span class="footer__love">❤</span> <a href="https://github.com/baooab" target="_blank">zhangbao</a>.
+            </p>
+          </div>
+        </div>
+      </footer>
+
+    </div>
+
+    <!-- refer: https://vuejs.org/v2/guide/components.html#Inline-Templates -->
+    <script type="text/x-template" id="add-blog-template">
+      <div class="container">
+    		<h2 class="title is-size-2">New Blog</h2>
+    		<form action="">
+    			<div class="field">
+    				<label class="label">Title</label>
+    				<div class="control">
+    					<input class="input" type="text" v-model.lazy="blog.title">
+    				</div>
+    			</div>
+    			<div class="field">
+    				<label class="label">Content</label>
+    				<div class="control">
+    					<textarea class="textarea" v-model="blog.content"></textarea>
+    				</div>
+    			</div>
+    			<div class="field">
+    				<label class="label">Categories</label>
+    				<div class="control">
+    					<label class="checkbox">
+    						<input type="checkbox" value="javascript" v-model="blog.categories"> JavaScript
+    					</label>
+    					<label class="checkbox">
+    						<input type="checkbox" value="html" v-model="blog.categories"> HTML
+    					</label>
+    					<label class="checkbox">
+    						<input type="checkbox" value="css" v-model="blog.categories"> CSS
+    					</label>
+    					<label class="checkbox">
+    						<input type="checkbox" value="vuejs" v-model="blog.categories"> Vue.js
+    					</label>
+    					<label class="checkbox">
+    						<input type="checkbox" value="laravel" v-model="blog.categories"> Laravel
+    					</label>
+    				</div>
+    			</div>
+    			<div class="field">
+    				<label class="label">Author</label>
+    				<div class="control">
+    					<div class="select">
+    						<select v-model="blog.author">
+    							<!-- refer: https://vuejs.org/v2/guide/forms.html#Select -->
+    							<option disabled value="">Please select one</option>
+    							<option v-for="author of authors"  v-bind:value="author.id" v-bind:key="author.id">{{ author.name }}</option>
+    						</select>
+    					</div>
+    				</div>
+    			</div>
+    			<div class="field">
+    				<div class="control">
+    					<button class="button is-link" v-on:click.prevent="storeBlog">Add</button>
+    				</div>
+    				<p v-if="submitted" class="help is-success">Blog added successfully.</p>
+    			</div>
+    		</form>
+    		<hr>
+    		<div id="preview-blog" class="box preview-blog">
+    			<h3 class="title is-size-3">Preview Blog</h3>
+    			<div class="content">
+    				<h4 class="title is-size-4">Title</h4>
+    				<p>{{ blog.title }}</p>
+    				<h4 class="title is-size-4">Content</h4>
+    				<div class="preview-blog__content">{{ blog.content }}</div>
+    				<h4 class="title is-size-4">Categories</h4>
+    				<div>
+    					<ul>
+    						<li v-for="category of blog.categories">{{ category }}</li>
+    					</ul>
+    				</div>
+    				<h4 class="title is-size-4">Author</h4>
+    				<p>{{ blog.author }}</p>
+    			</div>
+    		</div>
+    	</div>
+    </script>
+
+    <script type="text/x-template" id="list-blog-template">
+    	<div class="container" v-theme="''">
+    		<h2 class="title is-size-2">Blog List</h2>
+    		<div class="field">
+    			<div class="control">
+    				<input class="input is-medium" type="text" placeholder="Search blogs" v-model.trim="search">
+    			</div>
+    		</div>
+    		<article class="media" v-for="(blog, index) of filterBlogs" v-bind:key="blog.id">
+    			<div class="media-content">
+    				<div class="content">
+    					<h3><router-link v-bind:to="'/blogs/' + blog.id">{{ blog.title | toUpperCase }}</router-link></h3>
+    					<div>
+    						{{ blog.body |  shortPostDesc }}
+    					</div>
+    				</div>
+    			</div>
+    			<div class="media-right">
+    				<button class="delete" v-on:click="deleteBlog(blog.id)"></button>
+    			</div>
+    		</article>
+    	</div>
+    </script>
+
+    <script type="text/x-template" id="show-blog-template">
+    	<div class="container">
+    		<h2 class="title is-size-2">{{ blog.title }}</h2>
+    		<div class="content">
+    			{{ blog.body }}
+    		</div>
+    	</div>
+    </script>
+
+    <script src=js/app.js></script>
+
+</body>
+</html>
