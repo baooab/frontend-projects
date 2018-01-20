@@ -2,7 +2,7 @@
 
 这是模仿百度知道首页的 CSS 作品，下图是页面截图（[网站][link1]，[源码][link2]）。
 
-![App Cover Image](./images/app-cover.png)
+![App Cover Image](../baidu-zhidao/images/app-cover.png)
 
 ## 实现
 
