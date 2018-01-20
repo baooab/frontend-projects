@@ -6,7 +6,7 @@
 
 ## 页面
 
-一共有三张：[首页][link3]、产品页（[1][link4], [2][link5]） 和 [404][link6]。
+一共有三张：[首页][link3]、产品页（[1][link4], [2][link5]） 和 [404 页][link6]。
 
 ## 实现
 
@@ -46,7 +46,7 @@
 判断图片出现在视口中的逻辑是：图片顶部在视口中或者图片底部在视口中。
 
 [link1]: https://baooab.github.io/frontend-projects/yanxuan/
-[link2]: https://github.com/baooab/frontend-projects/tree/master/taobao-home
+[link2]: https://github.com/baooab/frontend-projects/tree/master/yanxuan
 [link3]: https://baooab.github.io/frontend-projects/yanxuan/
 [link4]: https://baooab.github.io/frontend-projects/yanxuan/product.html?id=1159002
 [link5]: https://baooab.github.io/frontend-projects/yanxuan/product.html?id=1145003
