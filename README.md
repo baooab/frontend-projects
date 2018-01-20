@@ -6,20 +6,20 @@
 
 > 除非特殊说明，下面的项目均为模仿作品。
 
-- 百度知道首页（[网页][link1], [源码][link2], [介绍][link3]）。
-- 淘宝首页（[网页][link4], [源码][link5], [介绍][link6]）。
+- 百度知道首页（[网页][link1]、[源码][link2], [介绍][link3]）。
+- 淘宝首页（[网页][link4]、[源码][link5], [介绍][link6]）。
 
 ## JavaScript 项目
 
-- [网易严选]（[网站][link7], [源码][link8], [介绍][link9]）。
+- 网易严选（[网站][link7]、[源码][link8] 和 [介绍][link9]）。
 
 ## Vue.js 项目
 
-- 简易博客（[网站][link10], [源码][link11]）。
+- 简易博客（[网站][link10] 和 [源码][link11]）。
 
 ## Node.js 项目
 
-- Todo List（[介绍][link12], [源码][link13]）。
+- Todo List（[介绍][link12] 和 [源码][link13]）。
 
 [link1]: https://baooab.github.io/frontend-projects/baidu-zhidao/
 [link2]: https://github.com/baooab/frontend-projects/tree/master/baidu-zhidao
