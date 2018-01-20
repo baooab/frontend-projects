@@ -132,6 +132,7 @@ header input {
     border: 1px solid #b8b8b8;
     border-right: none;
     padding-left: 6px;
+    vertical-align: middle;
 }
 
 header input:focus {
@@ -148,6 +149,7 @@ header button[type=submit] {
     vertical-align: top;
     margin-right: 4px;
     cursor: pointer;
+    vertical-align: middle;
 }
 
 header .ask {
@@ -156,6 +158,7 @@ header .ask {
     border: 1px solid;
     text-align: center;
     color: #3388ff;
+    vertical-align: middle;
 }
 
 .banner > .head {
@@ -1204,7 +1207,7 @@ header .ask {
 .fifth .hangye .slides .head img {
     height: 57px;
     position: absolute;
-    margin-top: -18px;
+    margin-top: -15px;
     margin-left: -72px;
 }
 
