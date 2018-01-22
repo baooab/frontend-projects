@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>后台管理</title>
+    <link rel="stylesheet" href="/asset/css/bulma-0.6.1.min.css">
+  </head>
+  <body>
+    <% include ../../partials/admin_head %>
+
+    <section class="section">
+      <div class="container">
+        <div class="content">
+          <table>
+            <thead>
+              <tr>
+                <th>Body</th>
+                <th>Tags</th>
+                <th>操作</th>
+              </tr>
+            </thead>
+            <tbody>
+              <% poems.forEach(function (poem) { %>
+              <tr>
+                <td><%= poem.body %></td>
+                <td><%= poem.tags %></td>
+                <td>
+                  <a href="" onclick="if(confirm('确定删除吗？')) { event.preventDefault(); document.getElementById('poem-<%= poem._id %>-remove-form').submit(); } else { return false; }">删除</a> |
+                  <a href="/admin/poems/<%= poem._id %>/edit">编辑</a>
+                  <form id="poem-<%= poem._id %>-remove-form" action="/admin/poems/<%= poem._id %>/remove" method="POST" style="display: none;"></form>
+                </td>
+              </tr>
+              <% }); %>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </section>
+
+    <% include ../../partials/foot %>
+  </body>
+</html>

@@ -1,0 +1,36 @@
+body {
+  font-family: "Trebuchet MS", serif;
+}
+
+#poems .card {
+  /* see: https://css-tricks.com/almanac/properties/u/user-select/ */
+  -webkit-user-select: none;  /* Chrome all / Safari all */
+  -moz-user-select: none;     /* Firefox all */
+  -ms-user-select: none;      /* IE 10+ */
+  user-select: none;          /* Likely future */
+}
+
+/* see: https://css-tricks.com/almanac/selectors/s/selection/ */
+::-moz-selection，
+::selection {
+  background: #209cee;
+}
+
+#poems .title {
+  font-family: STXihei;
+  font-size: 1.2rem;
+}
+
+#poems .subtitle {
+  font-family: Georgia;
+  margin-top: -1rem;
+  font-size: 1rem;
+}
+
+#poems .card.is-brief .title {
+  margin-bottom: 0;
+}
+
+#poems .card.is-brief .subtitle {
+  display: none;
+}

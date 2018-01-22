@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>添加 -《诗经》摘录</title>
+    <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="/asset/css/bulma-0.6.1.min.css">
+  </head>
+  <body>
+    <% include ../../partials/admin_head %>
+
+    <section class="section">
+      <div class="container">
+        <h1 class="title has-text-centered">添加</h1>
+        <div class="columns">
+          <div class="column is-6 is-offset-3">
+            <form action="/admin/poems" method="post">
+              <div class="field">
+                <label class="label">内容</label>
+                <div class="control">
+                  <input class="input" name="body" type="text" placeholder="">
+                </div>
+              </div>
+              <div class="field">
+                <label class="label">标签</label>
+                <div class="control">
+                  <input class="input" name="tags"  type="text" placeholder="">
+                </div>
+              </div>
+              <div class="field">
+                <p class="control">
+                  <button class="button is-info">
+                    添加
+                  </button>
+                </p>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <% include ../../partials/foot %>
+  </body>
+</html>
