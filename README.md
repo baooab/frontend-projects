@@ -30,7 +30,7 @@
 [link7]: https://baooab.github.io/frontend-projects/yanxuan/
 [link8]: https://github.com/baooab/frontend-projects/tree/master/yanxuan
 [link9]: https://baooab.github.io/frontend-projects/docs/yanxuan-intro.html
-[link10]: https://github.com/baooab/frontend-projects/tree/master/vuejs/simple-blog
-[link11]: https://baooab.github.io/frontend-projects/vuejs/simple-blog/
+[link10]: https://baooab.github.io/frontend-projects/vuejs/simple-blog/
+[link11]: https://github.com/baooab/frontend-projects/tree/master/vuejs/simple-blog
 [link12]: https://github.com/baooab/nodejs-todo-app/blob/master/README.md
 [link13]: https://github.com/baooab/nodejs-todo-app
